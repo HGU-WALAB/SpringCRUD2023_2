@@ -23,4 +23,9 @@ public class PlayerController {
         model.addAttribute("list",playerService.infoSimpleList().getSimpleInfoList());
         return "posts";
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addPlayer() {
+        return "add";
+    }
 }

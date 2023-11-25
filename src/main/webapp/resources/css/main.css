@@ -6,7 +6,12 @@
     padding: 20px;
     font-weight: bold;
     border: none;
+    margin-bottom: 30px;
 }
+.player-card:hover {
+    transform: scale(105%);
+}
+
 .S{
     color: #dfbe6d;
     background-color:#130d02;
@@ -78,7 +83,7 @@ button {
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     justify-content: center;
-    gap: 20px;
+    /*gap: 20px;*/
 }
