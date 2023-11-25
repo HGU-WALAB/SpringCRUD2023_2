@@ -58,7 +58,7 @@ public class PlayerDao {
                 data.setWeight(rs.getInt("weight"));
                 data.setHeight(rs.getInt("height"));
                 data.setImage(rs.getString("image"));
-                data.setBirthday(rs.getDate("birthday").toLocalDate());
+                data.setBirthday(rs.getDate("birthday"));
                 data.setFormation(rs.getString("formation"));
                 data.setPass(rs.getInt("pass"));
                 data.setShoot(rs.getInt("shoot"));

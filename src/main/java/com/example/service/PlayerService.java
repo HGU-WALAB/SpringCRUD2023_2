@@ -30,7 +30,7 @@ public class PlayerService {
                     .id(vo.getId())
                     .name(vo.getName())
                     .image(vo.getImage())
-                    .old(playerUtil.calculateOld(vo.getBirthday()))
+                    .age(playerUtil.calculateAge(vo.getBirthday()))
                     .formation(vo.getFormation())
                     .physical(playerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
                     .average(playerUtil.getAverage(vo))
@@ -40,4 +40,9 @@ public class PlayerService {
         dto.setSimpleInfoList(list);
         return dto;
     }
+
+    public int insertPlayer(PlayerVo vo){
+        return playerDao.insertPlayer(vo);
+    }
+
 }

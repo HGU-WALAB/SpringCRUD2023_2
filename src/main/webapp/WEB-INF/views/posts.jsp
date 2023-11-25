@@ -32,7 +32,7 @@
     </nav>
   <%--                 body                   --%>
   <div style="display: flex; justify-content: center; margin: 50px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 100px; width: 100%;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 100px; width: 90%;">
       <c:forEach items="${list}" var="p">
         <!-- 선수 정보 카드 -->
         <div class="card player-card ${p.getGrade()}">
@@ -44,7 +44,7 @@
           <div class="card-body">
             <h5 class="card-title">${p.getName()}</h5>
             <p class="card-text">포지션: ${p.getFormation()}</p>
-            <p class="card-text">나이: ${p.getOld()}</p>
+            <p class="card-text">나이: ${p.getAge()}</p>
             <p class="card-text">체격: ${p.getPhysical()}</p>
             <div style="display: flex; justify-content: space-between; padding-top: 10px">
               <div> </div>

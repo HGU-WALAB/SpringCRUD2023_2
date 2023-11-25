@@ -5,12 +5,21 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.sql.Date;
 
 @Component
 public class PlayerUtil {
-    public int calculateOld(LocalDate birthday){
+    public int calculateAge(Date birthday){
+        // Date를 LocalDate로 변환
+        LocalDate localBirthDate = birthday.toLocalDate();
+
+        // 현재 날짜
         LocalDate currentDate = LocalDate.now();
-        Period period = Period.between(birthday, currentDate);
+
+        // 나이 계산
+        Period period = Period.between(localBirthDate, currentDate);
+
+        // 나이 반환
         return period.getYears();
     }
 

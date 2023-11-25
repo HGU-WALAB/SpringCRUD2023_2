@@ -19,7 +19,7 @@ public class PlayerDto {
         private int id;
         private String name;
         private String image;
-        private int old;
+        private int age;
         private int weight;
         private int height;
         private LocalDate birthday;
@@ -41,7 +41,7 @@ public class PlayerDto {
         private int id;
         private String name;
         private String image;
-        private int old;
+        private int age;
         private String formation;
         private String physical;
         private int average;

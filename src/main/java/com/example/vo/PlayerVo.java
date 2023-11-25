@@ -3,7 +3,7 @@ package com.example.vo;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -13,7 +13,7 @@ public class PlayerVo {
     private int weight;
     private int height;
     private String image;
-    private LocalDate birthday;
+    private Date birthday;
     private String formation;
     private int pass;
     private int shoot;
