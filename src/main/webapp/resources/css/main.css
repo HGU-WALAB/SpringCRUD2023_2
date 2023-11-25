@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+.player-card {
+    width: 300px;
+    height: 500px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    border: none;
+    margin: 65px;
+}
+.S{
+    color: #dfbe6d;
+    background-color:#130d02;
+}
+
+.A{
+    color: #4e3800;
+    background-color: #d3a553;
+
+}
+
+.B {
+    color: #130d02;
+    background-color: #919aa5;
+}
+
+.C{
+    color: #130d02;
+    background-color: #ae8571;
+}
+
+.player-image{
+    width: 250px;
+    height: 280px;
+    padding: 10px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+
+button {
+    margin: 5px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    color: inherit;
+    background-color: inherit;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
