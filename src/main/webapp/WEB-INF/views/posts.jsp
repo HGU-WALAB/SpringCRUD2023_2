@@ -11,20 +11,30 @@
   <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
-<div class="container">
+
   <%--                 header                    --%>
-  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      My Player
-    </a>
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">선수 목록</a></li>
-      <li class="nav-item"><a href="/addCamp" class="nav-link">선수 추가</a></li>
-    </ul>
-  </header>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">My Player</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">선수 목록</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/player/add">선수 추가</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   <%--                 body                   --%>
-  <div class="row row-cols-lg-3 row-cols-md-2">
+  <div class="card-container">
     <c:forEach items="${list}" var="p">
+      <div class="col" style="margin: 80px">
       <%--                 선수 정보 카드                   --%>
       <div class="card player-card ${p.getGrade()}">
         <div style="display: flex; justify-content: space-between; width: 100% ">
@@ -41,9 +51,10 @@
           <button class="w-btn w-btn-gray" type="button">세부 정보 확인</button>
         </div>
       </div>
+      </div>
     </c:forEach>
   </div>
-</div>
+
 </body>
 </html>
 

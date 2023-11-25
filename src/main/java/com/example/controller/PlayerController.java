@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("/player")
 public class PlayerController {
 
     private final PlayerService playerService;
@@ -17,7 +18,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @RequestMapping(value = "/player/list",method = RequestMethod.GET)
+    @RequestMapping(value = "list",method = RequestMethod.GET)
     public String playerList(Model model){
         model.addAttribute("list",playerService.infoSimpleList().getSimpleInfoList());
         return "posts";

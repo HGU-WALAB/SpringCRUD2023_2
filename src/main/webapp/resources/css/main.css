@@ -6,7 +6,6 @@
     padding: 20px;
     font-weight: bold;
     border: none;
-    margin: 65px;
 }
 .S{
     color: #dfbe6d;
@@ -75,4 +74,11 @@ button {
     letter-spacing: 2px;
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
