@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
-<body>
+<body style="background-color:#F7EFE5">
 
   <%--                 header                    --%>
     <nav class="navbar navbar-dark bg-dark">
@@ -40,7 +40,7 @@
             <h3> ${p.getAverage()} </h3>
             <h3> ${p.getGrade()}</h3>
           </div>
-          <img src='${p.getImage()}' class="card-img-top d-block mx-auto player-image">
+          <img src='${p.getImage()}' class="card-img-top d-block mx-auto player-image" alt="${p.getName()}의 사진">
           <div class="card-body">
             <h5 class="card-title">${p.getName()}</h5>
             <p class="card-text">포지션: ${p.getFormation()}</p>
@@ -48,7 +48,7 @@
             <p class="card-text">체격: ${p.getPhysical()}</p>
             <div style="display: flex; justify-content: space-between; padding-top: 10px">
               <div> </div>
-              <div onclick="location.href='player/add'"> Detail >> </div>
+              <div onclick="location.href='/player/view/${p.getId()}'"> 더보기 >> </div>
             </div>
           </div>
         </div>

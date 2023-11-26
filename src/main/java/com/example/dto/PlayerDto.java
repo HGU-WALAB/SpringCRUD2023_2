@@ -20,12 +20,13 @@ public class PlayerDto {
         private String name;
         private String image;
         private int age;
+        private String formation;
+        private String physical;
+        private int average;
+        private String grade;
         private int weight;
         private int height;
         private LocalDate birthday;
-        private String formation;
-        private String physical;
-        private String grade;
         private int price;
         private int pass;
         private int shoot;
@@ -33,7 +34,6 @@ public class PlayerDto {
         private int speed;
         private int intelligence;
         private int goalkeeping;
-        private int average;
     }
     @Builder
     @Getter

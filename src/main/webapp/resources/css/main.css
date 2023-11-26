@@ -18,19 +18,19 @@
 }
 
 .A{
-    color: #4e3800;
-    background-color: #d3a553;
+    color: #61481C;
+    background-color: #E6B325;
 
 }
 
 .B {
-    color: #130d02;
-    background-color: #919aa5;
+    color: #3C486B;
+    background-color: #CFD2CF;
 }
 
 .C{
-    color: #130d02;
-    background-color: #ae8571;
+    color: #FFC26F;
+    background-color: #C38154;
 }
 
 .player-image{
@@ -41,49 +41,4 @@
     object-position: center;
     border-radius: 18px;
     overflow: hidden;
-}
-
-
-
-button {
-    margin: 5px;
-}
-
-.w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-    color: inherit;
-    background-color: inherit;
-}
-
-.w-btn-outline {
-    position: relative;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-.w-btn:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.card-container {
-    display: flex;
-    /*flex-wrap: wrap;*/
-    justify-content: center;
-    /*gap: 20px;*/
 }

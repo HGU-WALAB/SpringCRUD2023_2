@@ -5,6 +5,7 @@ import com.example.vo.PlayerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,5 +39,11 @@ public class PlayerController {
         else
             System.out.println("데이터 추가 성공!");
         return "redirect:list";
+    }
+
+    @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
+    public String playerView(Model model,@PathVariable("id") int id) {
+        model.addAttribute("p", playerService.info(id).getInfo());
+        return "view";
     }
 }

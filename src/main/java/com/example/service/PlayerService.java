@@ -7,6 +7,7 @@ import com.example.vo.PlayerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,4 +46,29 @@ public class PlayerService {
         return playerDao.insertPlayer(vo);
     }
 
+    public PlayerDto info(int id) {
+        PlayerVo vo=playerDao.getPlayer(id);
+        PlayerDto dto=new PlayerDto();
+        dto.setInfo(PlayerDto.Info.builder()
+                .id(vo.getId())
+                .name(vo.getName())
+                .image(vo.getImage())
+                .age(playerUtil.calculateAge(vo.getBirthday()))
+                .formation(vo.getFormation())
+                .physical(playerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
+                .average(playerUtil.getAverage(vo))
+                .grade(playerUtil.getGrade(vo))
+                .weight(vo.getWeight())
+                .height(vo.getHeight())
+                .birthday(vo.getBirthday().toLocalDate())
+                .price(playerUtil.calculatePrice(vo))
+                .pass(vo.getPass())
+                .shoot(vo.getShoot())
+                .defense(vo.getDefense())
+                .speed(vo.getSpeed())
+                .intelligence(vo.getIntelligence())
+                .goalkeeping(vo.getGoalkeeping())
+                .build());
+        return dto;
+    }
 }

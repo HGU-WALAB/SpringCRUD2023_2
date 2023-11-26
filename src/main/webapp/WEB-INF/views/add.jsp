@@ -2,21 +2,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <title>My Player</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        form {max-width: 600px; margin: auto;}
-        label {margin-top: 10px;}
-        input {margin-bottom: 15px;}
+        form {max-width: 800px; margin: auto;}
+        label {margin-top: 10px; font-size: 18px; font-weight: bold;}
+        input {margin-bottom: 15px; font-size: 16px;}
         .form-check-label {
             margin-right: 70px;
+            font-size: 16px;
+            font-weight: bold;
         }
+        h2 {font-size: 24px; font-weight: bold; margin-bottom: 20px;}
+        .btn-primary {font-size: 16px; font-weight: bold;}
     </style>
 </head>
 
-<body>
+<body style="background-color:#F7EFE5">
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">My Player</a>
@@ -35,7 +40,7 @@
         </div>
     </div>
 </nav>
-<form action="/player/addok" method="post" class="mb-3 border p-3" style="margin-top: 50px">
+<form action="/player/addok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5">
     <h2 class="mb-4">선수 추가</h2>
     <div class="mb-3">
         <div class="row">

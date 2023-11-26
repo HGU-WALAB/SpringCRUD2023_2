@@ -73,4 +73,26 @@ public class PlayerUtil {
         }
         return grade;
     }
+
+    public int calculatePrice(PlayerVo vo){
+        int average=getAverage(vo);
+        int age=calculateAge(vo.getBirthday());
+        double key=(double) average/age;
+        double formation=0;
+        switch (vo.getFormation()) {
+            case "GK":
+                formation = 0.6;
+                break;
+            case "DF":
+                formation = 0.8;
+                break;
+            case "MF":
+                formation = 0.9;
+                break;
+            case "FW":
+                formation = 1;
+                break;
+        }
+        return (int)((key*key*key)*formation)*30;
+    }
 }
