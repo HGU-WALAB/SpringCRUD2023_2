@@ -62,4 +62,14 @@ public class PlayerController {
             System.out.println("데이터 수정 성공!");
         return "redirect:/player/view/" + vo.getId();
     }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public String deletePlayer(@PathVariable("id") int id) {
+        int i = playerService.deletePlayer(id);
+        if (i == 0)
+            System.out.println("데이터 삭제 실패");
+        else
+            System.out.println("데이터 삭제 성공!");
+        return "redirect:../list";
+    }
 }

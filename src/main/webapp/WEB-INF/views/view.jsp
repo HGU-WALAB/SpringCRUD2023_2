@@ -109,7 +109,7 @@
         <button class="btn btn-outline-warning" onclick="location.href='/player/edit/${p.getId()}'" type="button">
           수정
         </button>
-        <button class="btn btn-outline-danger" type="button">
+        <button class="btn btn-outline-danger" onclick="location.href='/player/delete/${p.getId()}'" type="button">
           삭제
         </button>
     </div>

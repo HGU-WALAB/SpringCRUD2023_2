@@ -7,7 +7,6 @@ import com.example.vo.PlayerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,5 +77,9 @@ public class PlayerService {
 
     public int editPlayer(PlayerVo vo) {
         return playerDao.updatePlayer(vo);
+    }
+
+    public int deletePlayer(int id) {
+        return playerDao.deletePlayer(id);
     }
 }
