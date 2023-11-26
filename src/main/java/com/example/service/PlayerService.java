@@ -71,4 +71,12 @@ public class PlayerService {
                 .build());
         return dto;
     }
+
+    public Object getVo(int id) {
+        return playerDao.getPlayer(id);
+    }
+
+    public int editPlayer(PlayerVo vo) {
+        return playerDao.updatePlayer(vo);
+    }
 }

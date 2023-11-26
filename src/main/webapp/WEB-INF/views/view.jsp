@@ -106,7 +106,7 @@
         </tbody>
       </table>
       <div style="text-align: right;">
-        <button class="btn btn-outline-warning" type="button">
+        <button class="btn btn-outline-warning" onclick="location.href='/player/edit/${p.getId()}'" type="button">
           수정
         </button>
         <button class="btn btn-outline-danger" type="button">

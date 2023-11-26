@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class PlayerDao {
     private final String PLAYER_INSERT="insert into PLAYER (name,weight,height,image,birthday,formation,pass,shoot,defense,speed,intelligence,goalkeeping) values (?,?,?,?,?,?,?,?,?,?,?,?)";
-    private final String PLAYER_UPDATE = "update PLAYER set name=?, weight=?, height=?, image=?, birthday=?, formation=?, pass=?, shoot=?, intelligence=?, goalkeeping=?, modDate=current_timestamp where id=?";
+    private final String PLAYER_UPDATE = "update PLAYER set name=?, weight=?, height=?, image=?, birthday=?, formation=?, pass=?, shoot=?, defense=?, speed=?, intelligence=?, goalkeeping=?, modDate=current_timestamp where id=?";
     private final String PLAYER_DELETE="delete from PLAYER where id=?";
 
     private final String PLAYER_GET = "select * from PLAYER where id=?";

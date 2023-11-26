@@ -46,4 +46,20 @@ public class PlayerController {
         model.addAttribute("p", playerService.info(id).getInfo());
         return "view";
     }
+
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    public String editPlayer(Model model,@PathVariable("id") int id) {
+        model.addAttribute("p", playerService.getVo(id));
+        return "edit";
+    }
+
+    @RequestMapping(value = "editok", method = RequestMethod.POST)
+    public String editPlayerOk(PlayerVo vo) {
+        int i = playerService.editPlayer(vo);
+        if (i == 0)
+            System.out.println("데이터 수정 실패");
+        else
+            System.out.println("데이터 수정 성공!");
+        return "redirect:/player/view/" + vo.getId();
+    }
 }
