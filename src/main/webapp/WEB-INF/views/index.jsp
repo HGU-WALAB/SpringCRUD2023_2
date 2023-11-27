@@ -3,7 +3,7 @@
 <head>
     <script>
         function redirectToPlayerList() {
-            window.location.href = "/player/list";
+            window.location.href = "player/list";
         }
     </script>
 </head>

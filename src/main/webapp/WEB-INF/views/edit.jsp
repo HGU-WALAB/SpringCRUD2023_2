@@ -6,7 +6,7 @@
     <title>My Player</title>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         form {max-width: 800px; margin: auto;}
@@ -25,55 +25,55 @@
 <body style="background-color:#F7EFE5">
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">My Player</a>
+        <a class="navbar-brand" href="../list">My Player</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">선수 목록</a>
+                    <a class="nav-link" aria-current="page" href="../list">선수 목록</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/player/add">선수 추가</a>
+                    <a class="nav-link" href="../add">선수 추가</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<form action="/player/editok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5">
+<form action="../editok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5">
     <input type="hidden" value="${p.getId()}" id="id" name="id">
     <h2 class="mb-4">선수 수정</h2>
     <div class="mb-3">
         <div class="row">
             <div class="col-md-6">
-                <label for="name" class="form-label">이름:</label>
+                <label for="name" class="form-label">이름*</label>
                 <input type="text" id="name" name="name" class="form-control" value="${p.getName()}" required>
             </div>
             <div class="col-md-6">
-                <label for="weight" class="form-label">체중(kg):</label>
+                <label for="weight" class="form-label">체중(kg)*</label>
                 <input type="number" id="weight" value="${p.getWeight()}" name="weight" class="form-control" min="0" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="height" class="form-label">키(cm):</label>
+                <label for="height" class="form-label">키(cm)*</label>
                 <input type="number" id="height" value="${p.getHeight()}" name="height" class="form-control" min="0" required>
             </div>
             <div class="col-md-6">
-                <label for="birthday" class="form-label">생일:</label>
+                <label for="birthday" class="form-label">생일*</label>
                 <input type="date" id="birthday" name="birthday" value="${p.getBirthday()}" class="form-control" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label for="image" class="form-label">이미지:</label>
+                <label for="image" class="form-label">이미지*</label>
                 <input type="text" id="image" name="image" value="${p.getImage()}" class="form-control" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label class="form-label">포지션:</label>
+                <label class="form-label">포지션*</label>
                     <input type="radio" id="gk" name="formation" value="GK" class="form-check-input" style="margin-top: 15px;margin-left: 40px" required>
                     <label for="gk" class="form-check-label">GK</label>
                     <input type="radio" id="df" name="formation" value="DF" class="form-check-input" style="margin-top: 15px" required>
@@ -86,37 +86,39 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="pass" class="form-label">패스 (0-100):</label>
+                <label for="pass" class="form-label">패스 (0-100)*</label>
                 <input type="number" id="pass" name="pass" value="${p.getPass()}" class="form-control" min="0" max="100" required>
             </div>
             <div class="col-md-6">
-                <label for="shoot" class="form-label">슛 (0-100):</label>
+                <label for="shoot" class="form-label">슛 (0-100)*</label>
                 <input type="number" id="shoot" name="shoot" value="${p.getShoot()}" class="form-control" min="0" max="100" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="defense" class="form-label">수비력 (0-100):</label>
+                <label for="defense" class="form-label">수비력 (0-100)*</label>
                 <input type="number" id="defense" name="defense" value="${p.getDefense()}" class="form-control" min="0" max="100" required>
             </div>
             <div class="col-md-6">
-                <label for="speed" class="form-label">속도 (0-100):</label>
+                <label for="speed" class="form-label">속도 (0-100)*</label>
                 <input type="number" id="speed" name="speed" value="${p.getSpeed()}" class="form-control" min="0" max="100" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="intelligence" class="form-label">축구 지능 (0-100):</label>
+                <label for="intelligence" class="form-label">축구 지능 (0-100)*</label>
                 <input type="number" id="intelligence" name="intelligence" value="${p.getIntelligence()}" class="form-control" min="0" max="100" required>
             </div>
             <div class="col-md-6">
-                <label for="goalkeeping" class="form-label">골키퍼 능력 (0-100):</label>
+                <label for="goalkeeping" class="form-label">골키퍼 능력 (0-100)*</label>
                 <input type="number" id="goalkeeping" name="goalkeeping" value="${p.getGoalkeeping()}" class="form-control" min="0" max="100" required>
             </div>
         </div>
     </div>
     <div style="display: flex; justify-content: end">
-    <input type="submit" value="제출" class="btn btn-primary">
+        <input class="btn btn-warning" onclick="location.href='../view/${p.getId()}'" type="button" value="취소" style="margin-right: 10px;">
+    <input type="submit" value="제출" class="btn btn-primary" style="margin-right: 10px;">
+
     </div>
 </form>
 </body>

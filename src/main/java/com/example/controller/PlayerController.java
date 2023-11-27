@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/player")
 public class PlayerController {
 
     private final PlayerService playerService;
@@ -20,18 +19,18 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @RequestMapping(value = "/player/list", method = RequestMethod.GET)
     public String playerList(Model model) {
         model.addAttribute("list", playerService.infoSimpleList().getSimpleInfoList());
         return "posts";
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.GET)
+    @RequestMapping(value = "/player/add", method = RequestMethod.GET)
     public String addPlayer() {
         return "add";
     }
 
-    @RequestMapping(value = "addok", method = RequestMethod.POST)
+    @RequestMapping(value = "/player/addok", method = RequestMethod.POST)
     public String addPlayerOk(PlayerVo vo) {
         int i = playerService.insertPlayer(vo);
         if (i == 0)
@@ -41,29 +40,29 @@ public class PlayerController {
         return "redirect:list";
     }
 
-    @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/player/view/{id}", method = RequestMethod.GET)
     public String playerView(Model model,@PathVariable("id") int id) {
         model.addAttribute("p", playerService.info(id).getInfo());
         return "view";
     }
 
-    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/player/edit/{id}", method = RequestMethod.GET)
     public String editPlayer(Model model,@PathVariable("id") int id) {
         model.addAttribute("p", playerService.getVo(id));
         return "edit";
     }
 
-    @RequestMapping(value = "editok", method = RequestMethod.POST)
+    @RequestMapping(value = "/player/editok", method = RequestMethod.POST)
     public String editPlayerOk(PlayerVo vo) {
         int i = playerService.editPlayer(vo);
         if (i == 0)
             System.out.println("데이터 수정 실패");
         else
             System.out.println("데이터 수정 성공!");
-        return "redirect:/player/view/" + vo.getId();
+        return "redirect:view/" + vo.getId();
     }
 
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/player/delete/{id}", method = RequestMethod.GET)
     public String deletePlayer(@PathVariable("id") int id) {
         int i = playerService.deletePlayer(id);
         if (i == 0)
