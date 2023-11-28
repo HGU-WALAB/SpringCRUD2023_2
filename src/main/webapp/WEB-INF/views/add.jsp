@@ -40,7 +40,7 @@
         </div>
     </div>
 </nav>
-<form action="addok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5">
+<form action="addok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5" enctype="multipart/form-data">
     <h2 class="mb-4">선수 추가</h2>
     <div class="mb-3">
         <div class="row">
@@ -65,8 +65,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label for="image" class="form-label">이미지*</label>
-                <input type="text" id="image" name="image" class="form-control" required>
+                <label for="photo" class="form-label">이미지*</label>
+                <input type="file" id="photo" name="photo" class="form-control" required>
             </div>
         </div>
         <div class="row">

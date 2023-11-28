@@ -41,7 +41,7 @@
         </div>
     </div>
 </nav>
-<form action="../editok" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5">
+<form action="../editok/${p.getId()}" method="post" class="mb-3 border p-3" style="margin-top: 50px;background-color: #FFFBF5" enctype="multipart/form-data">
     <input type="hidden" value="${p.getId()}" id="id" name="id">
     <h2 class="mb-4">선수 수정</h2>
     <div class="mb-3">
@@ -67,8 +67,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label for="image" class="form-label">이미지*</label>
-                <input type="text" id="image" name="image" value="${p.getImage()}" class="form-control" required>
+                <label for="photo" class="form-label">이미지*</label>
+                <input type="file" id="photo" name="photo" class="form-control">
             </div>
         </div>
         <div class="row">

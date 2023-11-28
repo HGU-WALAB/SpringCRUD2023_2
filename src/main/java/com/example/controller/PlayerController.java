@@ -1,13 +1,13 @@
 package com.example.controller;
 
 import com.example.service.PlayerService;
-import com.example.vo.PlayerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class PlayerController {
@@ -31,8 +31,8 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/player/addok", method = RequestMethod.POST)
-    public String addPlayerOk(PlayerVo vo) {
-        int i = playerService.insertPlayer(vo);
+    public String addPlayerOk(HttpServletRequest request) {
+        int i = playerService.insertPlayer(request);
         if (i == 0)
             System.out.println("데이터 추가 실패");
         else
@@ -52,19 +52,19 @@ public class PlayerController {
         return "edit";
     }
 
-    @RequestMapping(value = "/player/editok", method = RequestMethod.POST)
-    public String editPlayerOk(PlayerVo vo) {
-        int i = playerService.editPlayer(vo);
+    @RequestMapping(value = "/player/editok/{id}", method = RequestMethod.POST)
+    public String editPlayerOk(HttpServletRequest request,@PathVariable("id") String id){
+        int i = playerService.editPlayer(request);
         if (i == 0)
             System.out.println("데이터 수정 실패");
         else
             System.out.println("데이터 수정 성공!");
-        return "redirect:view/" + vo.getId();
+        return "redirect:../view/" + id;
     }
 
     @RequestMapping(value = "/player/delete/{id}", method = RequestMethod.GET)
-    public String deletePlayer(@PathVariable("id") int id) {
-        int i = playerService.deletePlayer(id);
+    public String deletePlayer(HttpServletRequest request,@PathVariable("id") int id) {
+        int i = playerService.deletePlayer(request,id);
         if (i == 0)
             System.out.println("데이터 삭제 실패");
         else

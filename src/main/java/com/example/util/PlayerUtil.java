@@ -1,15 +1,13 @@
 package com.example.util;
 
 import com.example.vo.PlayerVo;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.sql.Date;
 
-@Component
 public class PlayerUtil {
-    public int calculateAge(Date birthday){
+    public static int calculateAge(Date birthday){
         // Date를 LocalDate로 변환
         LocalDate localBirthDate = birthday.toLocalDate();
 
@@ -23,7 +21,7 @@ public class PlayerUtil {
         return period.getYears();
     }
 
-    public String getPhysical(int height,int weight){
+    public static String getPhysical(int height, int weight){
         double heightInMeter = height / 100.0;
         double bmi = weight / (heightInMeter * heightInMeter);
         String result;
@@ -39,7 +37,7 @@ public class PlayerUtil {
         return result;
     }
 
-    public int getAverage(PlayerVo vo) {
+    public static int getAverage(PlayerVo vo) {
         int average = 0;
 
         switch (vo.getFormation()) {
@@ -59,7 +57,7 @@ public class PlayerUtil {
         return average;
     }
 
-    public String getGrade(PlayerVo vo){
+    public static String getGrade(PlayerVo vo){
         int average=getAverage(vo);
         String grade;
         if(average>=90){
@@ -74,7 +72,7 @@ public class PlayerUtil {
         return grade;
     }
 
-    public int calculatePrice(PlayerVo vo){
+    public static int calculatePrice(PlayerVo vo){
         int average=getAverage(vo);
         int age=calculateAge(vo.getBirthday());
         double key=(double) average/age;

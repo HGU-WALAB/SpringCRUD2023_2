@@ -40,7 +40,7 @@
             <h3> ${p.getAverage()} </h3>
             <h3> ${p.getGrade()}</h3>
           </div>
-          <img src='${p.getImage()}' class="card-img-top d-block mx-auto player-image" alt="${p.getName()}의 사진">
+          <img src="${pageContext.request.getContextPath()}/image/${p.getImage()}" class="card-img-top d-block mx-auto player-image" alt="${p.getName()}의 사진">
           <div class="card-body">
             <h5 class="card-title">${p.getName()}</h5>
             <p class="card-text">포지션: ${p.getFormation()}</p>

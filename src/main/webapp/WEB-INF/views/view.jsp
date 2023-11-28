@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +50,7 @@
               <span>${p.getName()}</span>
               <span>${p.getAverage()}</span>
             </div>
-            <img src='${p.getImage()}' class="card-img-top d-block mx-auto player-image" alt="Picture of ${p.getName()}">
+            <img src="${pageContext.request.getContextPath()}/image/${p.getImage()}" class="card-img-top d-block mx-auto player-image" alt="Picture of ${p.getName()}">
           </td>
           <td style="font-size: 19px; font-weight: bold; padding: 20px;">
             <div style="margin-bottom: 15px">

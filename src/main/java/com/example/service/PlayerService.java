@@ -2,23 +2,25 @@ package com.example.service;
 
 import com.example.dao.PlayerDao;
 import com.example.dto.PlayerDto;
+import com.example.util.FileUpload;
 import com.example.util.PlayerUtil;
 import com.example.vo.PlayerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PlayerService {
     private final PlayerDao playerDao;
-    private final PlayerUtil playerUtil;
+    private final FileUpload fileUpload;
 
     @Autowired
-    public PlayerService(PlayerDao playerDao,PlayerUtil playerUtil) {
+    public PlayerService(PlayerDao playerDao,FileUpload fileUpload) {
         this.playerDao = playerDao;
-        this.playerUtil=playerUtil;
+        this.fileUpload=fileUpload;
     }
     public PlayerDto infoSimpleList(){
         List<PlayerVo> voList=playerDao.getPlayerList();
@@ -30,18 +32,19 @@ public class PlayerService {
                     .id(vo.getId())
                     .name(vo.getName())
                     .image(vo.getImage())
-                    .age(playerUtil.calculateAge(vo.getBirthday()))
+                    .age(PlayerUtil.calculateAge(vo.getBirthday()))
                     .formation(vo.getFormation())
-                    .physical(playerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
-                    .average(playerUtil.getAverage(vo))
-                    .grade(playerUtil.getGrade(vo))
+                    .physical(PlayerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
+                    .average(PlayerUtil.getAverage(vo))
+                    .grade(PlayerUtil.getGrade(vo))
                     .build());
         }
         dto.setSimpleInfoList(list);
         return dto;
     }
 
-    public int insertPlayer(PlayerVo vo){
+    public int insertPlayer(HttpServletRequest request){
+        PlayerVo vo= fileUpload.uploadPhoto(request);
         return playerDao.insertPlayer(vo);
     }
 
@@ -52,15 +55,15 @@ public class PlayerService {
                 .id(vo.getId())
                 .name(vo.getName())
                 .image(vo.getImage())
-                .age(playerUtil.calculateAge(vo.getBirthday()))
+                .age(PlayerUtil.calculateAge(vo.getBirthday()))
                 .formation(vo.getFormation())
-                .physical(playerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
-                .average(playerUtil.getAverage(vo))
-                .grade(playerUtil.getGrade(vo))
+                .physical(PlayerUtil.getPhysical(vo.getHeight(), vo.getWeight()))
+                .average(PlayerUtil.getAverage(vo))
+                .grade(PlayerUtil.getGrade(vo))
                 .weight(vo.getWeight())
                 .height(vo.getHeight())
                 .birthday(vo.getBirthday().toLocalDate())
-                .price(playerUtil.calculatePrice(vo))
+                .price(PlayerUtil.calculatePrice(vo))
                 .pass(vo.getPass())
                 .shoot(vo.getShoot())
                 .defense(vo.getDefense())
@@ -75,11 +78,14 @@ public class PlayerService {
         return playerDao.getPlayer(id);
     }
 
-    public int editPlayer(PlayerVo vo) {
+    public int editPlayer(HttpServletRequest request) {
+        PlayerVo vo= fileUpload.uploadPhoto(request);
         return playerDao.updatePlayer(vo);
     }
 
-    public int deletePlayer(int id) {
+    public int deletePlayer(HttpServletRequest request,int id) {
+        PlayerVo vo=playerDao.getPlayer(id);
+        FileUpload.deleteFile(request,vo.getImage());
         return playerDao.deletePlayer(id);
     }
 }
