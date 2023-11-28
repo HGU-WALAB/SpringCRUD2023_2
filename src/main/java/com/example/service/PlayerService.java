@@ -15,12 +15,9 @@ import java.util.List;
 @Service
 public class PlayerService {
     private final PlayerDao playerDao;
-    private final FileUpload fileUpload;
-
     @Autowired
-    public PlayerService(PlayerDao playerDao,FileUpload fileUpload) {
+    public PlayerService(PlayerDao playerDao) {
         this.playerDao = playerDao;
-        this.fileUpload=fileUpload;
     }
     public PlayerDto infoSimpleList(){
         List<PlayerVo> voList=playerDao.getPlayerList();
@@ -44,7 +41,7 @@ public class PlayerService {
     }
 
     public int insertPlayer(HttpServletRequest request){
-        PlayerVo vo= fileUpload.uploadPhoto(request);
+        PlayerVo vo= FileUpload.uploadPhoto(request,"");
         return playerDao.insertPlayer(vo);
     }
 
@@ -78,8 +75,8 @@ public class PlayerService {
         return playerDao.getPlayer(id);
     }
 
-    public int editPlayer(HttpServletRequest request) {
-        PlayerVo vo= fileUpload.uploadPhoto(request);
+    public int editPlayer(HttpServletRequest request,int id) {
+        PlayerVo vo= FileUpload.uploadPhoto(request,playerDao.getImage(id));
         return playerDao.updatePlayer(vo);
     }
 

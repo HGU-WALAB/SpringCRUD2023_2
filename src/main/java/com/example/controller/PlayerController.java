@@ -54,7 +54,7 @@ public class PlayerController {
 
     @RequestMapping(value = "/player/editok/{id}", method = RequestMethod.POST)
     public String editPlayerOk(HttpServletRequest request,@PathVariable("id") String id){
-        int i = playerService.editPlayer(request);
+        int i = playerService.editPlayer(request,Integer.parseInt(id));
         if (i == 0)
             System.out.println("데이터 수정 실패");
         else

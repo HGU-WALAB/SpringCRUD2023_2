@@ -70,6 +70,12 @@ public class PlayerDao {
             }
         });
     }
+
+    public String getImage(int id){
+        return template.queryForObject("select image from PLAYER where id=?",
+                new Object[]{id},
+                String.class);
+    }
 }
 
 //*****  임연규 바보  ******

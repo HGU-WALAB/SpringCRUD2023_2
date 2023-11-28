@@ -1,28 +1,15 @@
 package com.example.util;
 
-import com.example.dao.PlayerDao;
 import com.example.vo.PlayerVo;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 
-@Component
 public class FileUpload {
-
-    private final PlayerDao playerDao;
-
-    @Autowired
-    public FileUpload(PlayerDao playerDao) {
-        this.playerDao = playerDao;
-    }
-
-    public PlayerVo uploadPhoto(HttpServletRequest request){
+    public static PlayerVo uploadPhoto(HttpServletRequest request, String oldfilename){
         String filename="";
         int sizeLimit=15*1024*1024;
 
@@ -52,8 +39,6 @@ public class FileUpload {
             one.setGoalkeeping(Integer.parseInt(multipartRequest.getParameter("goalkeeping")));
 
             if(id!=null && !id.equals("")){
-                PlayerVo vo=playerDao.getPlayer(Integer.parseInt(id));
-                String oldfilename=vo.getImage();
                 if(filename!=null && oldfilename!=null)
                     FileUpload.deleteFile(request,oldfilename);
                 else if(filename==null&&oldfilename!=null)
