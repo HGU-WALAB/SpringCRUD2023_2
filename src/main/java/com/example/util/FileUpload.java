@@ -14,7 +14,6 @@ public class FileUpload {
         int sizeLimit=15*1024*1024;
 
         String realPath = request.getServletContext().getRealPath("resources/image");
-        System.out.println(realPath);
         File dir = new File(realPath);
         if(!dir.exists()) dir.mkdir();
 

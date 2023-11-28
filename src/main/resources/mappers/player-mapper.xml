@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Player">
+    <insert id="insertPlayer">
+        insert into PLAYER (id,name,weight,height,image,birthday,formation,pass,shoot,defense,speed,intelligence,goalkeeping)
+        values
+            (#{id},#{name},#{weight},#{height},#{image},#{birthday},#{formation},#{pass},#{shoot},#{defense},#{speed},#{intelligence},#{goalkeeping})
+    </insert>
+    <update id="updatePlayer">
+        update PLAYER
+        set name = #{name},weight = #{weight}, height = #{height}, image = #{image}, birthday = #{birthday}, formation = #{formation}, pass = #{pass}, shoot = #{shoot}, defense = #{defense}, speed = #{speed}, intelligence = #{intelligence}, goalkeeping = #{goalkeeping}, modDate = CURRENT_TIMESTAMP
+        where id= #{id}
+    </update>
+    <delete id="deletePlayer">
+        delete from PLAYER where id = #{id}
+    </delete>
+    <select id="getPlayer" resultType="player">
+        select * from PLAYER where id = #{id}
+    </select>
+    <select id="getPlayerList" resultType="player">
+        select * from PLAYER order by regDate desc
+    </select>
+    <select id="getImage" resultType="String">
+        select image from PLAYER where id = #{id}
+    </select>
+</mapper>
